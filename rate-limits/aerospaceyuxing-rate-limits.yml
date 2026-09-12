@@ -1,0 +1,18 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.emposat.com/
+limit_count: 0
+rate_limits: []
+note: >-
+  No rate limits are documented, because Aerospace Yuxing publishes no API. This is an honest
+  zero recording that the question was asked, not a finding that the company throttles nothing.
+  No `RateLimits` pointer is wired in apis.yml: the agent-readiness rate-limit signal asserts a
+  provider publishes runtime limit headers, and wiring it from an artifact that records the
+  absence of an API would credit a surface that does not exist.
+headers_observed: []
+pages_checked:
+- url: https://www.emposat.com/
+  status: 200
+  result: no developer or API documentation anywhere on the site
+- url: https://www.emposat.com/openapi.json
+  status: 404

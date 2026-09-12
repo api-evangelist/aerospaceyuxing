@@ -1,0 +1,24 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.emposat.com/
+plan_count: 0
+plans: []
+note: >-
+  Aerospace Yuxing publishes no pricing of any kind. There is no pricing page, no plan table and
+  no "contact sales" quote form on www.emposat.com; the entire site is a corporate/services
+  brochure whose only commercial call to action is a phone number on the contact page
+  (+86 10-52894569) and a tender/bid announcement list at /bid/list. Its business is negotiated
+  satellite TT&C service contracts and delivered ground-system hardware and software, sold to
+  satellite operators and, in China, frequently through public procurement tenders - not a
+  self-serve product with plans. No `Pricing` pointer is wired in apis.yml, because there is no
+  pricing page to point at.
+pages_checked:
+- url: https://www.emposat.com/
+  status: 200
+  result: no pricing link in nav or footer
+- url: https://www.emposat.com/contact
+  status: 200
+  result: phone numbers and WeChat account only
+- url: https://www.emposat.com/bid/list
+  status: 200
+  result: tender/bid announcements, not published prices

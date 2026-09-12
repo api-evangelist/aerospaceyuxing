@@ -1,0 +1,59 @@
+generated: '2026-09-12'
+method: searched
+source: >-
+  registry searches of npm, PyPI, RubyGems, crates.io, Packagist, NuGet and Maven Central, plus
+  the GitHub organization, 2026-09-12
+result: none
+packages: []
+notes: >-
+  Aerospace Yuxing (Emposat) publishes no client SDK, because it publishes no public API. Its
+  software is delivered as installed TT&C system products to satellite operators, not as a
+  package a third-party developer installs. No `SDKs` pointer is wired in apis.yml and the
+  sdk_count checks are correctly left unearned.
+registries_checked:
+- registry: npm
+  query: emposat / @emposat scope
+  version: null
+  published: null
+  result: 0 packages in registry search; the @emposat scope does not exist (404)
+- registry: pypi
+  query: emposat, yuxing, aerospaceyuxing
+  version: null
+  published: null
+  result: 404 on all three spellings
+- registry: rubygems
+  query: emposat
+  version: null
+  published: null
+  result: 0 results
+- registry: crates.io
+  query: emposat
+  version: null
+  published: null
+  result: 0 results
+- registry: packagist
+  query: emposat
+  version: null
+  published: null
+  result: 0 results
+- registry: nuget
+  query: emposat
+  version: null
+  published: null
+  result: 0 hits
+- registry: maven-central
+  query: emposat
+  version: null
+  published: null
+  result: 0 hits
+- registry: github
+  query: orgs/Emposat
+  version: null
+  published: null
+  result: >-
+    Organization github.com/Emposat exists ("Emposat Co., Ltd.", id 99379959, created
+    2022-02-10, blog emposat.com, location China) and holds exactly 2 public repositories,
+    BOTH of which are forks of third-party projects and neither of which is a first-party
+    client library: Emposat/SatDump (fork of the open-source SatDump satellite data
+    processor, C++, last pushed 2022-04-11) and Emposat/usb (fork of a Go USB library, last
+    pushed 2022-06-19). Recorded here so a later pass does not mistake a fork for an SDK.

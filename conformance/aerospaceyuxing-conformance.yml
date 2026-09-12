@@ -1,0 +1,122 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.emposat.com/service/manageSupport
+scope: >-
+  Aerospace Yuxing publishes no API contract, so there are no web-API standards to assert from a
+  spec. What it does publish, on its own service pages, is the set of space ground-segment
+  interface protocols over which it will accept a center-to-center connection from a satellite
+  operator. Those are the real machine interfaces this company offers, and they are recorded here
+  as provider-claimed rather than verified, because no contract, schema or endpoint is published
+  that would let anyone check them. The web-API standards block below is recorded as
+  not-applicable rather than false, so this file is never mistaken for a compliance posture the
+  company does not claim.
+domain_standards:
+- id: pdxp
+  name: PDXP (Payload Data Exchange Protocol) - spacecraft TT&C / payload data exchange
+  conforms: true
+  verified: false
+  evidence: >-
+    https://www.emposat.com/service/manageSupport states, of its long-term spacecraft operations
+    management service: "中心对中心的连接...支持PDXP、CSP、KISS、CORTEX、AX.25等协议，也可适配用户自定义接口协议"
+    ("center-to-center connection ... supports PDXP, CSP, KISS, CORTEX, AX.25 and other protocols,
+    and can also adapt to user-defined interface protocols").
+  note: provider claim on its own service page; no protocol profile, ICD or schema is published
+- id: csp
+  name: CSP (CubeSat Space Protocol)
+  conforms: true
+  verified: false
+  evidence: same sentence at https://www.emposat.com/service/manageSupport
+  note: provider claim; no published ICD
+- id: kiss
+  name: KISS (amateur-radio TNC framing, widely used for smallsat packet links)
+  conforms: true
+  verified: false
+  evidence: same sentence at https://www.emposat.com/service/manageSupport
+  note: provider claim; no published ICD
+- id: cortex
+  name: CORTEX (Zodiac/Safran CORTEX baseband command and monitoring interface)
+  conforms: true
+  verified: false
+  evidence: same sentence at https://www.emposat.com/service/manageSupport
+  note: provider claim; no published ICD
+- id: ax25
+  name: AX.25 link-layer protocol
+  conforms: true
+  verified: false
+  evidence: same sentence at https://www.emposat.com/service/manageSupport
+  note: provider claim; no published ICD
+api_standards:
+- id: openapi
+  conforms: false
+  applicable: false
+  evidence: >-
+    no public API contract published on any reachable host - see
+    well-known/aerospaceyuxing-well-known.yml
+- id: asyncapi
+  conforms: false
+  applicable: false
+- id: graphql
+  conforms: false
+  applicable: false
+- id: oauth2
+  conforms: false
+  applicable: false
+- id: openid-connect
+  conforms: false
+  applicable: false
+  evidence: /.well-known/openid-configuration returns 404 on www.emposat.com
+- id: rfc9457-problem-details
+  conforms: false
+  applicable: false
+- id: mcp
+  conforms: false
+  applicable: false
+- id: a2a
+  conforms: false
+  applicable: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json both return 404 on www.emposat.com
+- id: rfc9116-security-txt
+  conforms: false
+  applicable: true
+  evidence: /.well-known/security.txt returns 404 on www.emposat.com
+- id: ogc-api
+  conforms: false
+  applicable: false
+  evidence: >-
+    the company sells remote-sensing calibration and payload data reception but advertises no
+    WMS/WFS/WCS/WMTS/CSW endpoint and no OGC API surface, so no OGC probe was warranted
+information_security_compliance:
+  found: false
+  note: >-
+    No trust center, SOC 2, ISO 27001 or equivalent information-security certification page was
+    found on the site or by search. No `Compliance` pointer is wired in apis.yml.
+published_compliance_statements:
+- url: https://www.emposat.com/declaration
+  status: 200
+  title: >-
+    Public Commitment on Global Compliance, Anti-Sanctions and Anti-Proliferation
+    (公开承诺声明), dated 2026-06-15
+  summary: >-
+    A signed corporate commitment describing a Sanctions Compliance Program (SCP) aligned to
+    OFAC internal-control expectations: counterparty due diligence and screening against UN
+    sanctions lists and the OFAC SDN list, tiered cross-border approval, employee compliance
+    training, record retention, periodic internal audit, and a stated civil/peaceful-use-only
+    boundary for its TT&C and data-reception services.
+  note: >-
+    Recorded because it is a real, dated, published compliance program - but it is an export
+    control and sanctions program, not an information-security or API compliance certification,
+    so it deliberately does NOT earn a `Compliance` pointer. Same treatment as a food-safety
+    regime on a non-software company.
+national_qualifications:
+- National High-tech Enterprise (国家高新技术企业)
+- Zhongguancun High-tech "Double High" Enterprise
+- National Specialized, Sophisticated, Innovative "Little Giant" Enterprise (专精特新小巨人)
+- Beijing Intellectual Property Advantage Unit; IP management standard (贯标) certification
+- source: https://www.emposat.com/intro and https://baike.baidu.com/en/item/Emposat%20Co.,%20Ltd./935118
+domain_security_observed:
+  source: security/aerospaceyuxing-domain-security.yml
+  summary: >-
+    www.emposat.com serves HTTPS but negotiates only TLS 1.2 and publishes no HSTS header; the
+    emposat.com domain has an SPF record but no DNSSEC, no CAA record and no DMARC record. The
+    apex emposat.com has no A record at all - only www resolves.

@@ -1,0 +1,95 @@
+generated: '2026-09-12'
+method: probed
+source: live probes of /.well-known/ and contract-discovery paths on Aerospace Yuxing (Emposat) hosts
+result: >-
+  none - every /.well-known/ path and every contract-discovery path returned 404 on the only
+  reachable Aerospace Yuxing host (www.emposat.com). No WellKnown and no SecurityTxt pointer is
+  wired in apis.yml, because this file records an absence, not a presence.
+hit_count: 0
+path_echo_control: passed
+hosts:
+- host: https://www.emposat.com
+  platform: Nuxt 3 server-rendered marketing site (Alibaba DNS, origin 119.3.169.210, Huawei Cloud)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 404
+    note: the site publishes no robots.txt at all, so nothing disallows this probe
+  - path: /sitemap.xml
+    status: 404
+  - path: /.well-known/aerospaceyuxing-negative-control-7f3ab91c.json
+    status: 404
+    note: >-
+      negative control - a path that cannot exist. It returned 404, so this host is not a
+      path-echoing catch-all and the 404s above are genuine origin misses.
+contract_discovery:
+  openapi: >-
+    not found - /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs,
+    /docs and /redoc all return 404 on www.emposat.com. The JSON-content paths return a real
+    JSON error envelope ({"error":true,"url":...}), the HTML-content paths return the site's
+    Nuxt 404 page; neither is a spec.
+  graphql: not found - /graphql returns the Nuxt 404 page; no GraphQL surface is advertised anywhere
+  mcp: not found - no hosted MCP server, no mcp. host, no MCP mention on any page of the site
+  wsdl: not probed - no SOAP/enterprise integration surface is advertised and no API host exists to probe
+  ogc: >-
+    not applicable - the company operates satellite ground stations and sells remote-sensing
+    calibration services, but publishes no WMS/WFS/WCS/WMTS/CSW endpoint and no "OGC API" prose.
+    Per the evidence-only rule, no blind OGC path patterns were probed.
+  a2a_agent_card: >-
+    not found - both /.well-known/agent-card.json and the legacy /.well-known/agent.json return
+    404. No a2a/ artifact is written.
+  conclusion: >-
+    Aerospace Yuxing publishes no machine-readable API contract of any kind on any reachable host.
+    This is a completed negative result, not an unfinished probe.
+hosts_that_do_not_resolve:
+- api.emposat.com
+- docs.emposat.com
+- developer.emposat.com
+- open.emposat.com
+- cloud.emposat.com
+- en.emposat.com
+- emposat.com
+hosts_unreachable:
+- host: https://service.emposat.com
+  dns: >-
+    resolves via Huawei Cloud CDN (service.emposat.com.0969b277.cdnhwcurq03.com ->
+    118.112.231.191 / 121.12.111.52 / 218.12.76.150)
+  result: connection timed out after 60s from a US probe; no bytes returned
+  note: >-
+    This is the company's customer service/cloud portal, linked from the homepage as
+    https://service.emposat.com/#/cloud. It is a customer login surface, not a developer
+    portal, and it did not answer from outside China. Recorded as unreachable rather than as
+    a finding about what it serves.
+x-evidence:
+  fetched: '2026-09-12'
+  method: curl GET, browser User-Agent, redirect-following, 25s timeout
+  dns_method: dig +short A/CNAME against the system resolver and 8.8.8.8

@@ -1,0 +1,49 @@
+# Aerospace Yuxing (Emposat)
+
+> Aerospace Yuxing (航天驭星; English brand Emposat Co., Ltd.; legally Beijing Aerospace Yuxing Technology Co., Ltd.) is a Beijing-headquartered commercial space-infrastructure operator founded in 2016 by a core team drawn from the China Academy of Space Technology and the wider CASC system. It builds and operates the ground segment commercial satellites depend on — more than 60 satellite ground stations worldwide plus the Ningxia Zhongwei remote-sensing calibration site — and sells telemetry, tracking and command (TT&C), on-orbit operations management, payload data reception, calibration, collision warning and debris mitigation as services.
+
+**There is no Aerospace Yuxing API.** As of 2026-09-12 the company publishes no developer portal, no public API documentation, no SDK, no webhooks, and no machine-readable API contract (no OpenAPI, AsyncAPI, GraphQL SDL, Postman collection or JSON Schema) on any reachable host. Do not assume or invent `api.emposat.com`, `docs.emposat.com`, `developer.emposat.com`, `open.emposat.com` or `cloud.emposat.com` — none of those hostnames resolve. Every `/.well-known/` path and every contract-discovery path returns 404 on `www.emposat.com`; the apex `emposat.com` has no A record and the site publishes no robots.txt and no sitemap.
+
+The one machine-facing surface the company advertises is not a web API. For long-term spacecraft operations management it offers a **center-to-center connection** to a customer's own operations center over space ground-segment protocols — **PDXP, CSP, KISS, CORTEX and AX.25**, plus customer-defined interface protocols. Those are link- and mission-layer protocols negotiated in a contract, not something an agent can call. There is also a customer service portal at `https://service.emposat.com/#/cloud`, which is a login surface for existing customers and did not answer at all from a US probe.
+
+## Company
+
+- [Aerospace Yuxing / Emposat](https://www.emposat.com/): company website (Chinese, with an EN toggle)
+- [Company introduction](https://www.emposat.com/intro): founding, scale, branch offices, qualifications
+- [Baidu Baike: Emposat Co., Ltd.](https://baike.baidu.com/en/item/Emposat%20Co.,%20Ltd./935118): English encyclopedia profile
+- [Crunchbase: Aerospace Yuxing](https://www.crunchbase.com/organization/aerospace-yuxing): funding and company profile
+- [EquityZen: Aerospace Yuxing (AEYU)](https://equityzen.com/company/aerospaceyuxing): secondary-market listing
+- [LinkedIn: EMPOSAT](https://www.linkedin.com/company/emposat/)
+- [GitHub: Emposat](https://github.com/Emposat): organization with 2 public repositories, both forks of third-party projects (SatDump, a Go USB library). No first-party code, no SDK.
+
+## Services
+
+- [Spacecraft round-trip TT&C](https://www.emposat.com/service/measurControl): launch-vehicle and spacecraft telemetry, tracking and command
+- [Long-term operations management support](https://www.emposat.com/service/manageSupport): full-lifecycle TT&C, constellation orbit maintenance, payload data reception; the page where the PDXP/CSP/KISS/CORTEX/AX.25 interface claim appears
+- [Spacecraft safety management](https://www.emposat.com/service/safetyManage): collision warning and space situational awareness
+- [Remote-sensing satellite calibration](https://www.emposat.com/service/calibrate): the Ningxia Zhongwei calibration and validation site
+- [Aerospace engineering consulting](https://www.emposat.com/service/consult): frequency coordination and launch licensing support
+- [Science popularization](https://www.emposat.com/service/extend)
+
+## Products
+
+- [Ground system products](https://www.emposat.com/product/ground): integrated and portable TT&C / data-reception ground stations
+- [Communication system products](https://www.emposat.com/product/communicate): on-board transceivers, transponders, multifunction baseband units
+- [Software system products](https://www.emposat.com/product/software): TT&C operations software — comprehensive management system, gateway service, task planning and scheduling, ground-station management. Delivered as an installed system to satellite operators, not as a hosted API.
+
+## Company news and procurement
+
+- [News center](https://www.emposat.com/news/list)
+- [Tender announcements](https://www.emposat.com/bid/list)
+- [Public commitment on global compliance, anti-sanctions and anti-proliferation](https://www.emposat.com/declaration): dated 2026-06-15; describes a Sanctions Compliance Program aligned to OFAC internal-control expectations and a civil/peaceful-use-only boundary on its services
+- [Partners](https://www.emposat.com/cooperation)
+- [Careers](https://www.emposat.com/joinUs)
+- [Contact](https://www.emposat.com/contact): +86 10-52894569
+
+## This profile
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/aerospaceyuxing/refs/heads/main/apis.yml): the APIs.json record for this company
+- `well-known/aerospaceyuxing-well-known.yml`: the full probe log, including the negative-control path that confirms the 404s are genuine
+- `conformance/aerospaceyuxing-conformance.yml`: the ground-segment protocol claims, recorded as provider-claimed and unverified
+- `packages/aerospaceyuxing-packages.yml`: every package registry queried, all empty
+- `security/aerospaceyuxing-domain-security.yml`: TLS/DNS posture of emposat.com
