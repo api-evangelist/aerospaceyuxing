@@ -47,6 +47,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Plans
+  url: plans/aerospaceyuxing-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/aerospaceyuxing-rate-limits.yml
 - type: Website
   url: https://www.emposat.com/
 - type: Support
